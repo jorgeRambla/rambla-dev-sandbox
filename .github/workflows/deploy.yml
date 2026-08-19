@@ -1,0 +1,46 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_REGION: eu-west-1
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Deploy cv (jorge.rambla.dev)
+        run: |
+          aws s3 sync apps/cv/dist/ s3://jorge-rambla-dev --delete
+          aws cloudfront create-invalidation --distribution-id E18935WDMMEBQI --paths "/*"
+
+      - name: Deploy sandbox (sandbox.rambla.dev)
+        run: |
+          aws s3 sync apps/sandbox/dist/ s3://sandbox-rambla-dev --delete
+          aws cloudfront create-invalidation --distribution-id E2IVIUEAHKB29H --paths "/*"
