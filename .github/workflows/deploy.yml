@@ -37,10 +37,10 @@ jobs:
 
       - name: Deploy cv (jorge.rambla.dev)
         run: |
-          aws s3 sync apps/cv/dist/ s3://jorge-rambla-dev --delete
-          aws cloudfront create-invalidation --distribution-id E18935WDMMEBQI --paths "/*"
+          aws s3 sync apps/cv/dist/ s3://${{ vars.CV_BUCKET }} --delete
+          aws cloudfront create-invalidation --distribution-id ${{ vars.CV_DISTRIBUTION_ID }} --paths "/*"
 
       - name: Deploy sandbox (sandbox.rambla.dev)
         run: |
-          aws s3 sync apps/sandbox/dist/ s3://sandbox-rambla-dev --delete
-          aws cloudfront create-invalidation --distribution-id E2IVIUEAHKB29H --paths "/*"
+          aws s3 sync apps/sandbox/dist/ s3://${{ vars.SANDBOX_BUCKET }} --delete
+          aws cloudfront create-invalidation --distribution-id ${{ vars.SANDBOX_DISTRIBUTION_ID }} --paths "/*"
