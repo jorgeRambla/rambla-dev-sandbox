@@ -125,3 +125,17 @@ a:hover {
   color: var(--r-muted);
   font-size: 0.9rem;
 }
+
+.r-button {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--r-radius);
+  background: var(--r-accent);
+  color: var(--r-bg);
+  font-weight: 600;
+}
+
+.r-button:hover {
+  text-decoration: none;
+  opacity: 0.9;
+}

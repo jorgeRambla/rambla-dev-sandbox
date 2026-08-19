@@ -42,5 +42,10 @@ jobs:
 
       - name: Deploy sandbox (sandbox.rambla.dev)
         run: |
-          aws s3 sync apps/sandbox/dist/ s3://${{ vars.SANDBOX_BUCKET }} --delete
+          aws s3 sync apps/sandbox/dist/ s3://${{ vars.SANDBOX_BUCKET }} --delete --exclude "projects/*"
           aws cloudfront create-invalidation --distribution-id ${{ vars.SANDBOX_DISTRIBUTION_ID }} --paths "/*"
+
+      - name: Deploy the-great-counter (sandbox.rambla.dev/#/the-great-counter)
+        run: |
+          aws s3 sync apps/the-great-counter/dist/ s3://${{ vars.SANDBOX_BUCKET }}/projects/the-great-counter/ --delete
+          aws cloudfront create-invalidation --distribution-id ${{ vars.SANDBOX_DISTRIBUTION_ID }} --paths "/projects/the-great-counter/*"
