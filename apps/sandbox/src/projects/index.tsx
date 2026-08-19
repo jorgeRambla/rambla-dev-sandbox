@@ -27,11 +27,11 @@ export const projects: Project[] = [
     title: 'The Great Counter',
     description: 'A multi-player counter — add players, each with their own counter and color.',
     render: () => (
-      <iframe
-        title="The Great Counter"
-        src="/projects/the-great-counter/"
-        className="r-project-frame"
-      />
+      <p>
+        <a className="r-button" href="/projects/the-great-counter/">
+          Open The Great Counter →
+        </a>
+      </p>
     ),
   },
 ];
