@@ -22,6 +22,18 @@ export const projects: Project[] = [
       </>
     ),
   },
+  {
+    slug: 'the-great-counter',
+    title: 'The Great Counter',
+    description: 'A multi-player counter — add players, each with their own counter and color.',
+    render: () => (
+      <iframe
+        title="The Great Counter"
+        src="/projects/the-great-counter/"
+        className="r-project-frame"
+      />
+    ),
+  },
 ];
 
 export function findProject(slug: string): Project | undefined {

@@ -32,13 +32,18 @@
 }
 
 .tgc-card {
-  background: var(--r-surface);
-  border: 2px solid var(--r-border);
+  border: none;
   border-radius: var(--r-radius);
+  overflow: hidden;
+}
+
+.tgc-card-scrim {
+  background: rgb(0 0 0 / 32%);
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  height: 100%;
 }
 
 .tgc-card-header {
@@ -47,24 +52,18 @@
   gap: 0.6rem;
 }
 
-.tgc-swatch {
-  width: 0.85rem;
-  height: 0.85rem;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
 .tgc-name {
   flex: 1;
   margin: 0;
   font-size: 1.1rem;
+  color: #fff;
   overflow-wrap: anywhere;
 }
 
 .tgc-remove {
   background: none;
   border: none;
-  color: var(--r-muted);
+  color: rgb(255 255 255 / 75%);
   font-size: 1.3rem;
   line-height: 1;
   cursor: pointer;
@@ -72,7 +71,7 @@
 }
 
 .tgc-remove:hover {
-  color: var(--r-text);
+  color: #fff;
 }
 
 .tgc-count {
@@ -80,6 +79,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
+  color: #fff;
 }
 
 .tgc-controls {
