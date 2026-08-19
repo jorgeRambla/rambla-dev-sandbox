@@ -1,0 +1,45 @@
+# Dependencies
+/node_modules
+**/node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/.pnp
+.pnp.js
+
+# Build output
+/tmp
+/out-tsc
+dist
+**/dist
+.turbo
+**/.turbo
+*.tsbuildinfo
+**/*.tsbuildinfo
+
+# Editor / OS
+.vscode/*
+.idea
+**/.idea
+.DS_Store
+**/.DS_Store
+
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Scratch / local-only files
+/.tmp

@@ -1,0 +1,26 @@
+{
+  "name": "@rambla/cv",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "clean": "rm -rf dist .turbo",
+    "deploy": "npm run build && aws s3 sync dist/ s3://jorge-rambla-dev --delete --profile personal && aws cloudfront create-invalidation --distribution-id E18935WDMMEBQI --paths \"/*\" --profile personal"
+  },
+  "dependencies": {
+    "@rambla/shared": "*",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.1",
+    "@vitejs/plugin-react": "5.0.4",
+    "typescript": "5.9.3",
+    "vite": "7.3.6"
+  }
+}
