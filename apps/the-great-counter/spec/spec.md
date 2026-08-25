@@ -27,6 +27,8 @@ counter and a randomly assigned color.
 - **i18n** — UI available in English and Spanish, auto-selected from the user's
   OS/browser language (`navigator.languages`), defaulting to English.
 - Applying any score change (quick-add or custom `−`/`+`) closes the score sheet.
+- A **Reset** action in the header sets all players' scores back to `0`
+  (with confirmation).
 
 ## Non-goals (v1)
 

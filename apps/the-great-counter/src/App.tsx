@@ -45,6 +45,12 @@ export function App() {
     setActiveId((current) => (current === id ? null : current));
   }
 
+  function resetScores() {
+    if (players.length === 0) return;
+    if (!window.confirm(t.resetConfirm)) return;
+    setPlayers((prev) => prev.map((p) => ({ ...p, count: 0 })));
+  }
+
   const activePlayer = players.find((p) => p.id === activeId) ?? null;
 
   return (
@@ -55,6 +61,11 @@ export function App() {
           <h1>{t.appTitle}</h1>
           <p>{t.appSubtitle}</p>
         </div>
+        {players.length > 0 && (
+          <button type="button" className="tgc-reset" onClick={resetScores}>
+            {t.reset}
+          </button>
+        )}
       </header>
 
       <main className="tgc-main">

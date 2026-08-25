@@ -22,6 +22,8 @@ type Messages = {
   add: string;
   close: string;
   done: string;
+  reset: string;
+  resetConfirm: string;
   customHint: string;
   custom: string;
   customValue: string;
@@ -45,6 +47,8 @@ const en: Messages = {
   add: 'Add',
   close: 'Close',
   done: 'Done',
+  reset: 'Reset',
+  resetConfirm: 'Reset all scores to 0?',
   customHint: 'Use − / + with a custom value below.',
   custom: 'Custom',
   customValue: 'Custom value',
@@ -68,6 +72,8 @@ const es: Messages = {
   add: 'Añadir',
   close: 'Cerrar',
   done: 'Hecho',
+  reset: 'Reiniciar',
+  resetConfirm: '¿Reiniciar todas las puntuaciones a 0?',
   customHint: 'Usa − / + con un valor personalizado abajo.',
   custom: 'Personalizado',
   customValue: 'Valor personalizado',

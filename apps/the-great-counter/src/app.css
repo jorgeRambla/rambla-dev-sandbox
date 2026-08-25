@@ -68,6 +68,24 @@ button {
   color: var(--tgc-muted);
 }
 
+.tgc-reset {
+  margin-left: auto;
+  align-self: center;
+  border: 1px solid var(--tgc-border);
+  background: var(--tgc-surface);
+  color: var(--tgc-text);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tgc-reset:hover {
+  border-color: var(--tgc-accent);
+  color: var(--tgc-accent-strong);
+}
+
 /* Main */
 .tgc-main {
   flex: 1;
